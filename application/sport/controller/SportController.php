@@ -32,10 +32,7 @@ class SportController extends BaseController
 			$result['retCode'] = "1";
 			$result['retMsg'] = "query error";
 		}
-		
-
-		//return json_encode($result, true);
-		echo json_encode($result, true);
+		echo json_encode($result);
 		exit(0);
 		
 	}
@@ -59,8 +56,8 @@ class SportController extends BaseController
 			$result['retMsg'] = "query error";
 		}
 
-		//return json_encode($result, true);
-		echo json_encode($result, true);
+
+		echo json_encode($result);
 		exit(0);
 	}
 
@@ -85,9 +82,7 @@ class SportController extends BaseController
 			$result['retMsg'] = "query error";
 		}
 
-		//return json_encode($result, true);
-
-		echo json_encode($result, true);
+		echo json_encode($result);
 		exit(0);
 	}
 
