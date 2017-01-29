@@ -34,7 +34,9 @@ class SportController extends BaseController
 		}
 		
 
-		return json_encode($result, false);
+		//return json_encode($result, true);
+		echo json_encode($result, true);
+		exit(0);
 		
 	}
 
@@ -45,8 +47,6 @@ class SportController extends BaseController
 			$sport = new Sport();
 			$offset = ($page - 1) * $count;
 			$list = $sport->where(["category_id" => $cid])->limit($offset, $count)->select();
-
-			echo $sport->getLastSql();
 
 			foreach ($list as $key => &$value) {
 				$value['img_url'] = $request->domain() . $value['img_url'];
@@ -59,7 +59,9 @@ class SportController extends BaseController
 			$result['retMsg'] = "query error";
 		}
 
-		return json_encode($result, false);
+		//return json_encode($result, true);
+		echo json_encode($result, true);
+		exit(0);
 	}
 
 
@@ -83,7 +85,10 @@ class SportController extends BaseController
 			$result['retMsg'] = "query error";
 		}
 
-		return json_encode($result, false);
+		//return json_encode($result, true);
+
+		echo json_encode($result, true);
+		exit(0);
 	}
 
 
