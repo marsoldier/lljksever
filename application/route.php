@@ -16,6 +16,7 @@ return [
     'sport/categories' => 'sport/sport/categories',
     'sport/:cid/:page/[:count]' => ['sport/sport/getSportByCategoryId', ['cid' => '\d+', 'page' => '\d+', 'count' => '\d+']],
     'sport/:id' => ['sport/sport/getSportById', ['id' => '\d+']],
-
+    'news/:id' => ['news/news/getNewsById', ['id' => '\d+']],
+    'news/:page/:count/[:type]'=> ['news/news/getList', ['page' => '\d+', 'count' => '\d+']]
 
 ];
