@@ -18,7 +18,7 @@ class NewsController extends BaseController{
 		try {
 			$news = new News();
 			$item = $news->where(['id' => $id])->find();
-			$item['imgurl'] = $request->domain() . $item['imgurl'];
+			$item['imgurl'] = $request->domain() . '/' . $item['imgurl'];
 
 			$result['data'] = $item;
 			
@@ -46,7 +46,7 @@ class NewsController extends BaseController{
 			$list = $news->limit($offset, $count)->field("id,title,type,addtime,source,summary,imgurl")->select();
 
 			foreach ($list as $key => &$value) {
-				$value['imgurl'] = $request->domain() . $value['imgurl'];
+				$value['imgurl'] = $request->domain() . '/' . $value['imgurl'];
 			}
 
 			$result['data'] = $list;
