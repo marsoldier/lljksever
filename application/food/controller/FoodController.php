@@ -91,7 +91,7 @@ class FoodController extends BaseController{
 			$offset = ($page - 1) * $count;
 
 
-			$list = $food->where(['category_id' => $cid])->limit($offset, $count)->field("id,name, alias,caloric, caloric_unit, weight, weight_unit")->select();
+			$list = $food->where(['category_id' => $cid])->limit($offset, $count)->field("id,name, alias,caloric, caloric_unit, weight, weight_unit, small_img_url")->select();
 
 			foreach ($list as $key => &$value) {
 				$value['small_img_url'] = $request->domain() . '/' . $value['small_img_url'];
