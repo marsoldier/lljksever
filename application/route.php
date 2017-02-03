@@ -19,9 +19,8 @@ return [
     'news/:id' => ['news/news/getNewsById', ['id' => '\d+']],
     'news/:page/:count/[:type]'=> ['news/news/getList', ['page' => '\d+', 'count' => '\d+']],
 
-    'food/categories' => ['food/food/foodCategories'],
+    'food/categories' => 'food/food/foodCategories',
     'food/:cid/:page/[:count]' => ['food/food/getFoodListByCategoryId', ['cid' => '\d+', 'page' => '\d+', 'count' => '\d+']],
-
     'food/:id' =>  ['food/food/getFoodById', ['id' => '\d+']],
 
 ];
