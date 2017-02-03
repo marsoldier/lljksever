@@ -64,7 +64,7 @@ class FoodController extends BaseController{
 			$measures = $mm->where(['food_id' => $id])->select();
 
 
-			$ni = NutritionInfo();
+			$ni = new NutritionInfo();
 			$nutritions = $ni->where(['food_id' => $id])->select();
 
 			$food['measures'] = $measures;
