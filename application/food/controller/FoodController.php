@@ -87,7 +87,7 @@ class FoodController extends BaseController{
 		$result = ["retCode" => "0", "retMsg" => "OK"];
 		$request = Request::instance();
 		try {
-			$food = new Foo();
+			$food = new Food();
 			$offset = ($page - 1) * $count;
 
 
