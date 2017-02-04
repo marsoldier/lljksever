@@ -22,6 +22,6 @@ return [
     'food/categories' => 'food/food/foodCategories',
     'food/:cid/:page/[:count]' => ['food/food/getFoodListByCategoryId', ['cid' => '\d+', 'page' => '\d+', 'count' => '\d+']],
     'food/:id' =>  ['food/food/getFoodById', ['id' => '\d+']],
-    'food/:keyword/:page/[:count]' => ['food/food/search', ['page' => '\d+', 'count' => '\d+']],
-    
+    'food/search/:keyword/:page/[:count]' => ['food/food/search', ['page' => '\d+', 'count' => '\d+']],
+
 ];
