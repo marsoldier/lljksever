@@ -56,6 +56,8 @@ class FoodController extends BaseController{
 			$request = Request::instance();
 			$domain  = $request->domain();
 
+			
+
 			$food['large_img_url'] = $domain . $food['large_img_url'];
 			$food['mid_img_url'] = $domain . $food['mid_img_url'];
 			$food['small_img_url'] = $domain . $food['small_img_url'];
@@ -99,6 +101,33 @@ class FoodController extends BaseController{
 
 			$result['data'] = $list;
 
+		} catch (Exception $e) {
+			$result['retCode'] = "1";
+			$result['retMsg'] = "query error";
+		}
+
+
+		echo json_encode($result);
+		exit(0);
+	}
+
+
+	public function search($keyword = 0, $page = 1, $count = 10)
+	{
+		$result = ["retCode" => "0", "retMsg" => "OK"];
+		$request = Request::instance();
+		try {
+			$food = new Food();
+			$offset = ($page - 1) * $count;
+			
+			$list = $food->where('name', 'like', '%'.$keyword.'%')->limit($offset, $count)->field("id,name, alias,caloric, caloric_unit, weight, weight_unit, small_img_url")->select();
+
+			foreach ($list as $key => &$value) {
+				$value['small_img_url'] = $request->domain() . $value['small_img_url'];
+			}
+
+			$result['data'] = $list;
+			
 		} catch (Exception $e) {
 			$result['retCode'] = "1";
 			$result['retMsg'] = "query error";
